@@ -39,7 +39,7 @@
 						<!-- start content -->
 							<div id="content">
 								<div class="post">
-									
+									<h1>dvn</h1>
 									<div class="entry">
 										<?php
 										
@@ -57,7 +57,7 @@
 												<tr> 
 													<td width="75%" height="100%">
 														<table border="0"  width="100%" height="100%">
-														<tr><h1 class="title">'.$row['b_nm'].'</h1></tr>
+														<tr><h1 class="title" style="padding-top:20px">'.$row['b_nm'].'</h1></tr>
 														<td style="font-size: 16px; font-style:italic">By (author): '.$row['b_author'].'</td>
 														<tr>
 															<td style="font-size: 20px;font-weight: bolder;color: red">USD $'.$row['b_price'].'</td>
