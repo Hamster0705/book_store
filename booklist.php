@@ -76,7 +76,7 @@ require('includes/config.php');
 												
 												$k=($page_current_page-1)*$page_per_page;
 											
-												$query="select *from book where b_subcat='$cat' LIMIT ".$k .",".$page_per_page;
+												$query="select * from book where b_subcat='$cat' LIMIT ".$k .",".$page_per_page;
 	
 												$res=mysqli_query($conn,$query) or die("Can't Execute Query...");
 	

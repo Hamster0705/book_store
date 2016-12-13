@@ -1,24 +1,24 @@
-<?php
+<?php  session_start();
 require('includes/config.php');	
 	
 	if(!empty($_POST))
 	{
 		$msg=array();
 		
-		if(empty($_POST['nm']) || empty($_POST['email']) || empty($_POST['query']))
+		if(empty($_POST['title']) || empty($_POST['author']))
 		{
 			$msg[]="Please full fill all requirement";
 		}
-		
+		 
 				
-		if(is_numeric($_POST['fnm']))
+		if(is_numeric($_POST['title']))
 		{
-			$msg[]="Name must be in String Format...";
+			$msg[]="Title must be in String Format...";
 		}
 		
-		if(is_numeric($_POST['email']))	//See this validation for @,21212 Later
+		if(is_numeric($_POST['author']))	//See this validation for @,21212 Later
 		{
-			$msg[]="Name must be in appropriate Format...";
+			$msg[]="Author's name must be in String Format...";
 		}
 		
 		
@@ -33,17 +33,20 @@ require('includes/config.php');
 		}
 		else
 		{
-			$nm=$_POST['nm'];
-			$email=$_POST['email'];
-			$question=$_POST['query'];
 			
-			
-			$query="insert into contact(con_nm,con_email,con_query)
-			values('$nm','$email','$question')";
-			
+			$id=$_SESSION['id'];
+			$tt=$_POST['title'];
+			$au=$_POST['author'];
+			$oth=$_POST['other'];
+			$stt='Waiting';
+															
+			$query="insert into request(u_id, re_bnm,re_bau,re_oth,re_stt)
+			values('$id','$tt','$au','$oth','$stt')";
+															
 			mysqli_query($conn,$query) or die("Can't Execute Query...");
 			
-			header("location:contact.php");
+			header("location:request_sucess.php");
+		
 		}
 	}
 	else

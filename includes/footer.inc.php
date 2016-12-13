@@ -1,3 +1,3 @@
 <div id="footer-wrap">
-	<p id="legal">(c) 2010 OurSite. Design by <a href="http://www.phptpoint.com"> PHP-t-POINT</a>.</p>
+	<p id="legal">(c) 2016 Bookstore. Design by 7 Group</a>.</p>
 	</div>

@@ -47,6 +47,7 @@ require('includes/config.php');
 					$_SESSION=array();
 					$_SESSION['unm']=$row['u_unm'];
 					$_SESSION['uid']=$row['u_pwd'];
+					$_SESSION['id']=$row['u_id'];
 					$_SESSION['status']=true;
 					
 					if($_SESSION['unm']!="admin")

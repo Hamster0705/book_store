@@ -20,6 +20,14 @@
 		<?php
 			include("includes/head.inc.php");
 		?>
+	<style type="text/css">
+	.cen{
+		text-align: center;
+		display: table-cell;
+		vertical-align: middle; 
+	}
+
+	</style>
 </head>
 
 <body>
@@ -39,23 +47,24 @@
 						<!-- start content -->
 							<div id="content">
 								<div class="post">
-									<h1>dvn</h1>
+									<h1>Categories:</h1>
 									<div class="entry">
 										<?php
 										
-											echo '
+											echo 
+											'<div style="min-height:400px">
 											<table border="0"  width="100%" bgcolor="#ffffff" style="font-size: 15px;">
 
 												<tr> 
 													
-													<td width="25%" rowspan="3">
-														<img src="'.$row['b_img'].'" width="200">
+													<td width="35%" rowspan="3" class="cen">
+														<img src="'.$row['b_img'].'" width="265px">
 													
 													</td>
 												</tr>
 											
 												<tr> 
-													<td width="75%" height="100%">
+													<td width="65%" height="auto" style="margin-top:0">
 														<table border="0"  width="100%" height="100%">
 														<tr><h1 class="title" style="padding-top:20px">'.$row['b_nm'].'</h1></tr>
 														<td style="font-size: 16px; font-style:italic">By (author): '.$row['b_author'].'</td>
@@ -71,6 +80,7 @@
 													</td>
 												</tr>
 											</table>
+											</div>
 										
 												<tr valign="bottom" >
 												
@@ -82,7 +92,14 @@
 												<tr align="">
 													 <td colspan="3"> <h2 style="font-size: 22px;font-weight: bolder;background:white; color:black;height:auto">Product Details</h2><hr>
 													 </td>
-												</tr>	
+												</tr>
+
+												<tr>
+													<td style="padding-left:20px;font-weight:bolder;width:100px">  Pages</td>
+													<td>: </td>
+													<td>'.$row['b_page'].'</td>
+												</tr>
+
 												<tr>
 													<td style="padding-left:20px;font-weight:bolder;width:100px">Publisher </td>
 													<td>: </td>
@@ -101,37 +118,72 @@
 													<td >'.$row['b_isbn'].'</td>
 												</tr>
 															
-												<tr>
-													<td style="padding-left:20px;font-weight:bolder;width:100px">  Pages</td>
-													<td>: </td>
-													<td style="margin-bottom:20px;">'.$row['b_page'].'</td>
-												</tr>
 												
 												<tr>
-													<td style="color:white">hiden</td>
-													<td></td>
-													<td></td>
+													<td style="padding-left:20px;font-weight:bolder;width:100px">  Availability</td>
+													<td>: </td>
+													<td style="color:red">'.$row['b_stt'].'</td>
 												</tr>
 
-																		
-											 </table>
-											  	
+												<tr>
+													<td style="padding-left:20px;color:white; width:100px"> hien</td>
+													<td></td>
+													<td ></td>
+												</tr>
+											</table>';
+											if($row['b_stt']=="Unavailable"){
+											echo'
+											<table border="0" width="100%">
+												
+												 <tr align="center" bgcolor="#EAEAEA" style="font-size:18px; font-weight:bolder; color:red">';
+												 
+												 if(isset($_SESSION['status']))
+												 {
+													echo ' <td>
+													<form method="post">
+													<input type="submit" name ="submit" id="x" value="Request book" />
+													</form>';
+													if(isset($_POST['submit'])){
+															$id=$_SESSION['id'];
+															$tt=$row['b_nm'];
+															$au=$row['b_author'];
+															$oth=$row['b_lang'];
+															$stt='Waiting';
+															
+															$query="insert into request(u_id, re_bnm,re_bau,re_oth,re_stt)
+															values('$id','$tt','$au','$oth','$stt')";
+															
+															mysqli_query($conn,$query) or die("Can't Execute Query...");
+															echo 'Request success! Check your order status to confirm.';
+													}
+													'</td>';
+													
+													
+												}
+												else
+												{
+													echo '<td><br><a href="register.php"> <h4>Please Login..</h4></a></td>';
+												}
+												echo '</tr>
+											</table>';
+											}
+											else {echo'	
 											<table border="0" width="100%">
 												
 												 <tr align="center" bgcolor="#EAEAEA" style="font-size:15px">';
 												 
 												 if(isset($_SESSION['status']))
 												 {
-													echo ' <td><a href="process_cart.php?nm='.$row['b_nm']/*.'&cat='.$_GET['cat']*/.'&rate='.$row['b_price'].'">
-														<img src="images/addcart.jpg">
+													echo ' <td><a href="process_cart.php?nm='.$row['b_nm']/*.'&cat='.$_GET['cat']*/.'&rate='.$row['b_price'].'"><img src="images/addcart.jpg">
 													</a></td>';
 												}
 												else
 												{
-													echo '<td><img src="images/addcart.jpg"><br><a href="register.php"> <h4>Please Login..</h4></a></td>';
+													echo '<td><br><a href="register.php"> <h4>Please Login..</h4></a></td>';
 												}
 												echo '</tr>
 											</table>';
+											}
 										?>
 									</div>
 				

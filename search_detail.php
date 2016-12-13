@@ -6,14 +6,18 @@ require('includes/config.php');
 	
 	$s1=$_GET['s'];
 	$s2=$_GET['price'];
-	$s3=$_GET['availability'];
+	$s3=$_GET['ava'];
 	$s4=$_GET['searchLang'];
-	$query="select * from book where b_nm like '%$s1%'";
-	$query1="select * from book where b_nm like '%$s1%' AND b_stt like '%$s3%' AND b_lang like '%$s4%' AND b_price < 20";
+	$s5=$_GET['searchAuthor'];
+	$s6=$_GET['searchPublisher'];
+	$s7=$_GET['searchISBN'];
+	$query="select * from book where b_nm like '%$s1%' AND b_stt like '%$s3%' AND b_lang like '%$s4%' AND b_author like '%$s5%' AND b_publisher like '%$s6%' AND b_isbn like '%$s7%'";
 
-	$query2="select * from book where b_nm like '%$s1%' AND b_stt like '%$s3%' AND b_lang like '%$s4%' AND b_price > 20 AND b_price < 40";
+	$query1="select * from book where b_nm like '%$s1%' AND b_stt like '%$s3%' AND b_lang like '%$s4%' AND b_author like '%$s5%' AND b_publisher like '%$s6%' AND b_isbn like '%$s7%' AND b_price < 20";
 
-	$query3="select * from book where b_nm like '%$s1%' AND b_stt like '%$s3%' AND b_lang like '%$s4%' AND b_price > 40";
+	$query2="select * from book where b_nm like '%$s1%' AND b_stt like '%$s3%' AND b_lang like '%$s4%' AND b_author like '%$s5%' AND b_publisher like '%$s6%' AND b_isbn like '%$s7%' AND b_price > 20 AND b_price < 40 ";
+
+	$query3="select * from book where b_nm like '%$s1%' AND b_stt like '%$s3%' AND b_lang like '%$s4%' AND b_author like '%$s5%' AND b_publisher like '%$s6%' AND b_isbn like '%$s7%' AND b_price > 40";
 	
 	$res=mysqli_query($conn,$query) or die("Can't Execute Query...");
 	$res1=mysqli_query($conn,$query1) or die("Can't Execute Query...");
@@ -54,7 +58,7 @@ require('includes/config.php');
 										<table border="0" width="100%" >
 											<?php
 												$count=0;
-											if($s2=="" && $s3 == "" && $s4 == ""){
+											if($s2==""){
 												$num = mysqli_num_rows($res);
 												if($num==0) {
 													echo "<h1>Not found!</h1>";
@@ -85,8 +89,7 @@ require('includes/config.php');
 													}
 												}
 											}
-												
-							
+
 											if($s2=="low"){
 												$num = mysqli_num_rows($res1);
 												if($num==0) {

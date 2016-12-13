@@ -27,7 +27,7 @@
 					<div id="content">
 						<div class="post">
 							<h1 class="title">Welcome to Bookstore
-							<!--<?php 
+							<?php 
 								if(isset($_SESSION['status']))
 								{
 									echo $_SESSION['unm']; 
@@ -36,7 +36,7 @@
 								{	
 									echo 'Book Store';
 								}
-							?>-->
+							?>
 							</h1>
 							<div class="entry">
 							<br>

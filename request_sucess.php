@@ -43,39 +43,14 @@ require('includes/config.php');
 						<!-- start content -->
 							<div id="content">
 								<div class="post">
-									<h1 class="title">Request books you want</h1>
-					<?php
-					if(!isset($_SESSION['status'])){
-						echo '<a href="register.php"> <h1>Please Login..</h1></a>';
-					}
-					else echo'
+									<h1 class="title" style="margin-top: 20px">Thank for your contact! We will notify you as soon as we can.</h1>
+									<style type="text/css">
 									
-									<div class="entry">
-									<h3  style="margin-left: 20px; padding-top: 20px"> Require <span class="red">*</span> </h3>
-										<form action="process_request.php" method="POST"  style="margin-left: 20px">
-												
-
-											<br>
-												Book title <span class="red">*</span>:<br>
-												<input type="text" name="title" size=35>
-												<br><br><br>
-
-												Author <span class="red">*</span>:<br>
-												<input type="text" name="author" size=35>
-												<br><br><br>
-
-												Other informations:<br>
-												<textarea cols="40" rows="10" name="other" ></textarea>
-												<br><br><br>
-
-												<input  type="submit" name="btn" value="   OK   "  >
-
-												
-										</form>
-									
-									</div>'
-						?>	
-									
+									</style>
+									<a href="request.php"><h2 style="display: inline;height: auto;background: transparent;color: blue;padding: 0 0 0 0">Continue request</h2></a> 
+									<h2 style="display: inline;height: auto;background: transparent;color: black;padding: 0 0 0 0">or</h2>
+									<a href="index.php"><h2 style="display: inline;height: auto; background: transparent;color: blue;padding: 0 0 0 0">back to homepage</h2></a> 
+					
 								</div>	
 							</div>
 						<!-- end content -->

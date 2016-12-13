@@ -5,7 +5,7 @@
             <li><a href="index.php" class="home-icon-link"><i class="icon-home"></i><span class="show-on-mobile">Home</span></a></li>
             <li><a rel="nofollow" href="viewcart.php"><i class="icon-order-status"></i>Viewcart</a></li>
             <li><a href=""><i class="icon-em"></i>Order status</a></li>
-            <li><a rel="nofollow" href="request.php"><i class="icon-wishlist"></i>Wishlist</a></li>
+            <li><a rel="nofollow" href="request.php"><i class="icon-wishlist"></i>Request</a></li>
             <li><a rel="nofollow" href="aboutus.php"><i class="icon-info"></i>About us</a></li>
 
         </ul>
@@ -41,7 +41,7 @@
 					</div>
 
 			<div class="mobile-basket-wrap basket">
-				<a href="https://www.bookdepository.com/basket" class="mobile-basket-btn basket-wrap">
+				<a href="" class="mobile-basket-btn basket-wrap">
                     <span class="item-count" data-item-count="0">0</span>
 					<i class="icon-basket"></i>
 				</a>
@@ -52,10 +52,14 @@
 					<div class="el-wrap header-search-el-wrap">
 						<input type="text" placeholder="Search for books by name" name="s" class="text-input" value="">
 						<button class="header-search-btn" type="submit"><span class="text">Search</span></button>
-					</div><div class="result-wrap no-result"><div class="suggest-result"></div><div class="book-result"></div></div>
+					</div>
+					<div class="result-wrap no-result">
+					<div class="suggest-result"></div>
+					<div class="book-result"></div>
+					</div>
 				</form>
-
-		</div>
+				<a rel="nofollow" href="search_adv.php" class="advanced-search">Advanced Search</a>
+			</div>
 
 	</header>
 </div>
