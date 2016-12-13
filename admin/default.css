@@ -89,10 +89,10 @@ input, textarea, select {
 /* Header */
 
 #header {
-	width: 860px;
-	height: 52px;
-	margin: 0 auto;
-	background: url(images/img02.jpg) no-repeat left top;
+	width: auto;
+	height: 80px;
+	margin: 20px 20px;
+	background: #403042;
 }
 
 /* Menu */
@@ -136,7 +136,7 @@ input, textarea, select {
 	color: #FFFFFF;
 }
 
-/** LOGO */
+/** LOGO
 
 #logo-wrap {
 	width: 860px;
@@ -187,13 +187,13 @@ input, textarea, select {
 }
 
 #logo p a:hover { text-decoration: underline; }
-
+*/
 
 
 /* Page */
 
 #page {
-	width: 850px;
+	width: 1236px;
 	margin: 0 auto;
 }
 
@@ -201,8 +201,8 @@ input, textarea, select {
 
 #content {
 	float: left;
-	width: 825px;
-	background: url(images/img10.jpg) no-repeat left top;
+	width: 1236px;
+	background-color: #E4E4E4;
 }
 
 /* Post */
@@ -353,16 +353,15 @@ input, textarea, select {
 
 /* Footer */
 #footer-wrap {
-	width: 860px;
-	height: 64px;
-	margin: 0 auto;
-	background: url(images/img04.jpg) no-repeat left top;
+	width: 1236px;;
+	height: auto;
+	margin-left:20px;
+	background-color: #403042;
 }
 
 #footer {
 	margin: 0 auto;
-	height: 64px;
-	min-height: 64px;
+	height: auto;
 	padding: 0;
 }
 
@@ -377,7 +376,8 @@ html>body #footer {
 	clear: both;
 	padding-top: 10px;
 	text-align: center;
-	color: #fff;
+	color: white;
+	font-size: 16px;
 }
 
 #legal a {

@@ -28,10 +28,6 @@ require('includes/config.php');
 		}
 		else
 		{
-			
-			
-	
-			
 			$unm=$_POST['usernm'];
 			
 			$q="select * from user where u_unm='$unm'";
@@ -42,7 +38,7 @@ require('includes/config.php');
 			
 			if(!empty($row))
 			{
-				if($_POST['pwd']==$row['u_pwd'])
+				if(md5($_POST['pwd'])==$row['u_pwd'])
 				{
 					$_SESSION=array();
 					$_SESSION['unm']=$row['u_unm'];
@@ -62,12 +58,15 @@ require('includes/config.php');
 				
 				else
 				{
-					echo 'Incorrect Password....';
+					//echo 'Incorrect Password....';
+					$error_login = "Incorrect password!";
+					require 'index.php';
 				}
 			}
 			else
 			{
-				echo 'Invalid User';
+				$error_user = "Invalid username!";
+				require 'index.php';
 			}
 		}
 	

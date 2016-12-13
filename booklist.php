@@ -70,7 +70,7 @@ require('includes/config.php');
 									<h1 class="title"><?php echo $_GET['subcatnm'];?></h1>
 									<div class="entry">
 										
-										<table border="4" width="100%" >
+										<table width="100%" >
 											<br><br><br><br><br>
 											<?php
 												
@@ -87,14 +87,20 @@ require('includes/config.php');
 													{
 														echo '<tr>';
 													}	
-													echo '<td valign="top" width="20%" align="center">
-														<a href="detail.php?id='.$row['b_id'].'&cat='.$_GET['subcatnm'].'">
-														<img src="'.$row['b_img'].'" width="80" height="100">
-														<br>'.$row['b_nm'].'</a>
+													echo '<td valign="top" width="25%" align="center" style="margin-right: 5px">
+													<div style="height:150px">
+													<a href="detail.php?id='.$row['b_id'].'"><img src="'.$row['b_img'].'" width="100" height="140"><br></a>
+													</div>
+													<h4 style="font-weight:bolder; height:50px; width: 170px; font-size:16px">'.$row['b_nm'].'</h4>
+													<h4 style="font-size:16px; color: #9999B2;text-align: center;font-stype:italic">'.$row['b_pbd'].'</h4>
+													<h4 style="font-size:18px; color:red; text-align: center;font-weight:bolder">USD$'.$row['b_price'].'</h4>
+														
+														
+														
 													</td>';
 													$count++;							
 													
-													if($count==2)
+													if($count==4)
 													{
 														echo '</tr>';
 														$count=0;

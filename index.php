@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php if(!isset($_SESSION)){
+    session_start();
+}?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -27,7 +29,7 @@
 					<div id="content">
 						<div class="post">
 							<h1 class="title">Welcome to Bookstore
-							<?php 
+							<!--?php 
 								if(isset($_SESSION['status']))
 								{
 									echo $_SESSION['unm']; 
@@ -36,7 +38,7 @@
 								{	
 									echo 'Book Store';
 								}
-							?>
+							?-->
 							</h1>
 							<div class="entry">
 							<br>
@@ -65,9 +67,6 @@
 													<h4 style="font-weight:bolder; height:50px; width: 170px; font-size:16px">'.$row['b_nm'].'</h4>
 													<h4 style="font-size:16px; color: #9999B2;text-align: center;font-stype:italic">'.$row['b_pbd'].'</h4>
 													<h4 style="font-size:18px; color:red; text-align: center;font-weight:bolder">USD$'.$row['b_price'].'</h4>
-														
-														
-														
 													</td>';
 													$count++;							
 													

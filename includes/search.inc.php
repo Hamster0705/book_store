@@ -1,28 +1,43 @@
+<style type="text/css">
+	b{
+		font-size:18px;
+	}
+</style>
 <ul>
-			<li id="login">
+			
 				
 						<?php
 						require('includes/config.php');
-							if(isset($_SESSION['status']))
+							if(!isset($_SESSION['status']))
 							{
-								echo '<h2 style="margin-left: -15px">Hello :  '.$_SESSION['unm'].'</h2>';
-							}
-							else
-							{
-								echo '<form action="process_login.php" method="POST">
-										<h2 style="margin-left: -15px">LogIn</h2>
-											<b>Username:</b>
-											<br><input type="text" name="usernm" style="width=200px"><br>
+								echo '<form action="process_login.php" method="POST" style="margin-left: 15px; margin-bottom:20px">
+										<h2 style="margin-left: -15px"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</h2>
+											<b style="">User name:</b>
+											<br><input type="text" name="usernm" style="width=200px; font-size:18px"><br>
 											<br>
 											
 											
 											<b>Password:</b>
-											<br><input type="password" name="pwd">
+											<br><input type="password" name="pwd" style="width=200px; font-size:18px" >
 											<input type="submit" id="x" value="Login" />
-										</form>';
+											<div style="font-size:20px; font-weight:bolder; color: red;">';
+											if ( isset ( $error_login) ){
+											
+										    	echo $error_login;
+										    	
+											}
+											if ( isset ( $error_user) ){
+										    	echo $error_user;
+										    	echo "<br><p style='display: inline; font-size:15px; color: black; font-weight:bold'>If you're sure that you haven't registered your account, 
+										    		<p style='display: inline; font-size:15px; font-weight:bolder;color: black; font-weight:bold'><a href='register.php'>register</a></p>
+										    		<p style='display: inline; font-size:15px;color: black; font-weight:bold'> now.</p>";
+											}
+											echo '<br>
+											</div>
+											</form>';
 							}
 						?>
-			</li>
+
 
 			<!--li id="search">
 				<h2>Search</h2>
@@ -40,7 +55,7 @@
 								<?php
 										
 			
-										$query="select * from category ";
+										$query="select * from category order by cat_nm";
 			
 										$res=mysqli_query($conn,$query);
 											

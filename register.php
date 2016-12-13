@@ -7,6 +7,12 @@
 		<?php
 			include("includes/head.inc.php");
 		?>
+		<style type="text/css">
+			.red{
+				color: red;
+				font-weight: normal;
+			}
+		</style>
 </head>
 
 <body>
@@ -33,12 +39,12 @@
 				<div id="page">
 						<!-- start content -->
 				
-							<div id="content">
+							<div id="content" style="font-size: 16px">
 					
 								<div class="post">
-									<h1 class="title">Welcome to Registeration.</h1>
-						
-									<div class="entry">
+									<h1 class="title">Register</h1>
+									<h3>Required <span class="red">*</span></h3>
+									<div class="entry" style="padding-left: 20px">
 									<br><br>
 										<?php
 											if(isset($_GET['error']))
@@ -49,7 +55,7 @@
 											
 											if(isset($_GET['ok']))
 											{
-												echo '<font color="blue">You are successfully Registered..</font>';
+												echo '<font color="blue" style="font-size:18px">You are successfully registered.</font>';
 												echo '<br><br>';
 											}
 										
@@ -58,7 +64,7 @@
 										<table>
 											<form action="process_register.php" method="POST">
 												<tr>
-													<td><b>Full Name :</b>&nbsp;&nbsp;</td>
+													<td><b>Full Name <span class="red">*</span> :</b>&nbsp;&nbsp;</td>
 													<td><input type='text' size="30" maxlength="30" name='fnm'></td>
 												
 												</tr>
@@ -66,7 +72,7 @@
 												<tr><td>&nbsp;</tr>
 												
 												<tr>
-													 <td><b>User Name :</b>&nbsp;&nbsp;</td>
+													 <td><b>User Name <span class="red">*</span> :</b>&nbsp;&nbsp;</td>
 													 <td><input type='text' size="30" maxlength="30" name='unm'></td>
 													 <td>&nbsp;</td>
 													
@@ -75,15 +81,15 @@
 												<tr><td>&nbsp;</tr>
 												
 												<tr>
-													<td><b>Password :</b>&nbsp;&nbsp;</td>
-													<td><input type='password' name='pwd' size="30"></td>
+													<td><b>Password <span class="red">*</span> :</b>&nbsp;&nbsp;</td>
+													<td><input type='password' name='pwd' size="30" placeholder="6 -> 30 characters"></td>
 													 
 												</tr>
 												
 												<tr><td>&nbsp;</tr>
 												
 												<tr>
-													<td><b>Confirm Password:</b>&nbsp;&nbsp;</td>
+													<td><b>Confirm Password <span class="red">*</span> :</b>&nbsp;&nbsp;</td>
 													<td><input type='password' name='cpwd' size="30"></td>
 													
 												</tr>
@@ -91,7 +97,7 @@
 												<tr><td>&nbsp;</tr>
 												
 												<tr>
-													<td><b>Gender:</b>&nbsp;&nbsp;</td>
+													<td><b>Gender :</b>&nbsp;&nbsp;</td>
 													<td><input type="radio"  value="Male" name="gender" id='m'><label> Male</label>&nbsp;&nbsp;&nbsp;
 														<input type="radio" value="Female" name="gender" id='f'><label>Female</label></td>
 														<td>&nbsp;</td>
@@ -100,7 +106,7 @@
 												<tr><td>&nbsp;</tr>
 																				
 												<tr>
-													<td><b>E-mail Address:</b>&nbsp;&nbsp;</td>
+													<td><b>E-mail Address <span class="red">*</span> :</b>&nbsp;&nbsp;</td>
 													<td><input type='text' name='mail' size="30"></td>
 													
 												</tr>
@@ -108,7 +114,7 @@
 												<tr><td>&nbsp;</tr>
 												
 												<tr>
-													<td><b>Contact No.:</b>&nbsp;&nbsp;</td>
+													<td><b>Phone number :</b>&nbsp;&nbsp;</td>
 													<td><input type='text' name='contact' size="30"></td>
 													
 												</tr>
@@ -117,26 +123,9 @@
 												
 												
 												<tr>
-													<td><b>City:</b>&nbsp;&nbsp;</td>
-													<td>
-													<select style="width: 195px;" name="city">
-														
-															<option>Ahmedabad
-															<option>Baroda
-															<option>Jamnagar
-															<option>Rajkot
-															<option>Porbandar
-															<option>Anand
-															<option>Surat
-															<option>Surendranagar
-															<option>Jamnagar
-															<option>Junagadh
-															<option>Amreli
-															<option>Bhavnagar
-															<option>Mehsana
-															
-														
-													</select>
+													<td><b>City :</b>&nbsp;&nbsp;</td>
+													<td><input type='text' name='city' size="30"></td>
+													
 												
 												</tr>
 												

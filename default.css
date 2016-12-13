@@ -197,7 +197,7 @@ input, textarea, select {
 
 #page {
 	width: auto;
-	margin: 20px 20px;
+	margin: 50px 20px;
 }
 
 /* Content */
@@ -271,9 +271,10 @@ input, textarea, select {
 
 #sidebar {
 	float: left;
-	width: 300px;
+	width: 280px;
 	background: white;
 	margin-top:30px;
+	margin-left: 20px
 }
 
 #sidebar ul {
@@ -300,7 +301,7 @@ input, textarea, select {
 
 #sidebar h2 {
 	height: 32px;
-	width: 300px;
+	width: 280px;
 	padding: 8px 0 0 15px;
 	margin-bottom: 10px;
 	margin-top:-5px;
@@ -337,7 +338,6 @@ input, textarea, select {
 	padding: 3px;
 	border: none;
 	background: #467805;
-	
 	font-size: 18px;
 	color: #FFFFFF;
 }

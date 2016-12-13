@@ -5,23 +5,24 @@
 	{
 		$msg="";
 		
-		if(empty($_POST['fnm']) || empty($_POST['unm']) || empty($_POST['gender']) || empty($_POST['pwd']) || empty($_POST['cpwd']) || empty($_POST['mail'])||empty($_POST['city']))
+		if(empty($_POST['fnm']) || empty($_POST['unm']) || empty($_POST['pwd']) || empty($_POST['cpwd']) || empty($_POST['mail']))
 		{
 			$msg.="<li>Please full fill all requirement";
 		}
 		
 		if($_POST['pwd']!=$_POST['cpwd'])
 		{
-			$msg.="<li>Please Enter your Password Again.....";
+			$msg.="<li>Please Enter your Password Again...";
 		}
 		
-		if(!preg_match("^[a-z0-9_]+[a-z0-9_.]*@[a-z0-9_-]+[a-z0-9_.-]*\.[a-z]{2,5}$",$_POST['mail']))
+		if(!preg_match("^[a-z0-9_]+[a-z0-9_.]*@[a-z0-9_-]+[a-z0-9_.-]*\.[a-z]{2,5}$",$_POST['mail'])
+			/*!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)*/)
 		{
 			$msg.="<li>Please Enter Your Valid Email Address...";
 		}
 		
 		
-		if(strlen($_POST['pwd'])>10)
+		if(strlen($_POST['pwd'])>30 || strlen($_POST['pwd'])<6)
 		{
 			$msg.="<li>Please Enter Your Password in limited Format....";
 		}
@@ -39,7 +40,7 @@
 		{
 			$fnm=$_POST['fnm'];
 			$unm=$_POST['unm'];
-			$pwd=$_POST['pwd'];
+			$pwd=md5($_POST['pwd']);
 			$gender=$_POST['gender'];
 			$email=$_POST['mail'];
 			$contact=$_POST['contact'];
