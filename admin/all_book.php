@@ -65,8 +65,8 @@ Description: A two-column, fixed-width and lightweight template ideal for 1024x7
 <TD style="color:darkgreen" WIDTH='50%'><b><u>NAME</u></b></TD>
 <TD style="color:darkgreen" WIDTH='20%'><b><u>PUBLISHER</u></b></TD>
 <TD style="color:darkgreen" WIDTH='20%'><b><u>ISBN</u></b></TD>
-<TD style="color:darkgreen" WIDTH='25%'><b><u>PRICE</u></b></TD>
-<TD style="color:darkgreen" WIDTH='25%'><b><u>IMAGE</u></b></TD>
+<TD style="color:darkgreen" WIDTH='15%'><b><u>PRICE</u></b></TD>
+<TD style="color:darkgreen" WIDTH='35%'><b><u>IMAGE</u></b></TD>
 <TD style="color:darkgreen" WIDTH='25%'><b><u>DELETE</u></b></TD>				
 							
 						</tr>

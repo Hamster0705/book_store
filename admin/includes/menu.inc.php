@@ -18,15 +18,24 @@
 			
 		</ul-->
 	<link rel="stylesheet" href="http://d3ogvdx946i4sr.cloudfront.net/assets/v2.3.1/css/common.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css">
+	body{
+    	background-color: #f0f0f0;
+	}
+	.custom {
+    	margin: 5px 0 5px 0;
+	}
+	</style>
 	<div class="user-nav-wrap " style="width: 1236px">
     <div class="user-nav">
         <ul class="left-nav nav mobile-nav-content" data-order="1">
             <li><a href="index.php" class="home-icon-link"><i class="icon-home"></i><span class="show-on-mobile">Home</span></a></li>
-            <li><a rel="nofollow" href="category.php"><i class=""></i>Category</a></li>
-            <li><a href="subcategory.php"><i class=""></i>Sub category</a></li>
+            <li><a rel="nofollow" href="category.php"><i class=""></i>Categories</a></li>
+            <li><a href="subcategory.php"><i class=""></i>Sub-categories</a></li>
             <li><a rel="nofollow" href="all_book.php"><i class=""></i>Books</a></li>
-            <li><a rel="nofollow" href="check_request.php"><i class=""></i>Check request</a></li>
-            <li><a rel="nofollow" href="check_order.php"><i class=""></i>Check order</a></li>
+            <li><a rel="nofollow" href="check_request.php"><i class=""></i>Check requests</a></li>
+            <li><a rel="nofollow" href="check_order.php"><i class=""></i>Check orders</a></li>
 
         </ul>
 

@@ -27,7 +27,7 @@ require('includes/config.php');
 			
 			mysqli_query($conn,$query) or die("can't Execute...");
 			
-			mysql_close($link);
+			mysqli_close($link);
 			header("location:category.php");
 		}
 	}

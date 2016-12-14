@@ -28,8 +28,8 @@
 					<!-- start content -->
 					<div id="content">
 						<div class="post">
-							<h1 class="title">Welcome to Bookstore
-							<!--?php 
+							<!--h1 class="title">Welcome to Bookstore
+							<?php 
 								if(isset($_SESSION['status']))
 								{
 									echo $_SESSION['unm']; 
@@ -38,8 +38,8 @@
 								{	
 									echo 'Book Store';
 								}
-							?-->
-							</h1>
+							?>
+							</h1-->
 							<div class="entry">
 							<br>
 							<h1 style="padding-left: 10px; font-weight: bolder;">New books</h1><hr>

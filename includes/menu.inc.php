@@ -32,7 +32,7 @@
                 <?php 
         		if(isset($_SESSION['status']))
 				{
-					echo 'Hello <p style="font-weight:bolder; display:inline; color: yellow; font-size:20px"> '.$_SESSION['unm'].'</p>. Welcome to Bookstore!';
+					echo 'Hello <p style="font-weight:bolder; display:inline; color: yellow; font-size:20px"> '.$_SESSION['unm'].'</p>.';
 				}
 				?>
 			</div>

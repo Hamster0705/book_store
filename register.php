@@ -73,7 +73,7 @@
 												
 												<tr>
 													 <td><b>User Name <span class="red">*</span> :</b>&nbsp;&nbsp;</td>
-													 <td><input type='text' size="30" maxlength="30" name='unm'></td>
+													 <td><input type='text' size="30" maxlength="30" name='unm' placeholder="6 -> 24 characters"></td>
 													 <td>&nbsp;</td>
 													
 												</tr>

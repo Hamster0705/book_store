@@ -36,6 +36,23 @@
 											</div>
 											</form>';
 							}
+						if(isset($_GET['cat_nm'])){
+							echo '<h2 style="margin-left: px">Sub categories</h2>';
+							//echo '<ul>';
+							$q = "select * from subcat where parent_id = ".$_GET['cat'];
+							$res = mysqli_query($conn,$q) or die("Can't Execute Query..");
+	
+							$row1 = mysqli_fetch_assoc($res);
+									do
+									{
+										
+										echo '<li style="margin-bottom:0px"><a href="booklist.php?subcatid='.$row1['subcat_id'].'&subcatnm='.$row1["subcat_nm"].'">'.$row1['subcat_nm'].'</a><hr></li>';
+										//&subcatnm='.$row1["subcat_nm"].'
+									}while($row1 = mysqli_fetch_assoc($res));
+									
+							//echo "</ul>";
+								
+						}
 						?>
 
 
@@ -61,7 +78,7 @@
 											
 										while($row=mysqli_fetch_assoc($res))
 											{
-												echo '<li><a href="subcat.php?cat='.$row['cat_id'].'&catnm='.$row["cat_nm"].'">'.$row["cat_nm"].'</a></li>';
+												echo '<li><a href="subcat.php?cat='.$row['cat_id'].'&cat_nm='.$row["cat_nm"].'">'.$row["cat_nm"].'</a></li>';
 												//pass catid not catnm
 											}
 			

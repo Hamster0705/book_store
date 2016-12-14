@@ -7,7 +7,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
 	margin-top: 49px;
 	padding: 0;
-	background: url(images/img01.jpg) repeat-x left top;
+	background-color:#E4E4E4;
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	color: #333333;
@@ -202,13 +202,16 @@ input, textarea, select {
 #content {
 	float: left;
 	width: 1236px;
-	background-color: #E4E4E4;
+	background-color: white;
+
 }
 
 /* Post */
 
 .post {
 	padding: 15px 15px;
+	min-height: 520px;
+	background-color: ;
 }
 
 .post .title {
@@ -222,7 +225,6 @@ input, textarea, select {
 .post h2 {
 	height: 32px;
 	padding: 8px 0 0 15px;
-	background: url(images/img09.jpg) no-repeat left top;
 	font-size: 18px;
 	color: #DADADA;
 }
@@ -387,4 +389,4 @@ input,textarea,select{width:250px;height:30px;}
 
 select{width:250px;height:30px;}
 textarea{height:80px}
-input[type=submit]{width:150px;height:39px;}
+input[type=submit]{width:auto;height:39px;}

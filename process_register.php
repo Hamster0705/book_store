@@ -7,29 +7,33 @@
 		
 		if(empty($_POST['fnm']) || empty($_POST['unm']) || empty($_POST['pwd']) || empty($_POST['cpwd']) || empty($_POST['mail']))
 		{
-			$msg.="<li>Please full fill all requirement";
+			$msg="<li>Please full fill all requirement";
 		}
 		
 		if($_POST['pwd']!=$_POST['cpwd'])
 		{
-			$msg.="<li>Please Enter your Password Again...";
+			$msg="<li>Please Enter your Password Again...";
 		}
 		
-		if(!preg_match("^[a-z0-9_]+[a-z0-9_.]*@[a-z0-9_-]+[a-z0-9_.-]*\.[a-z]{2,5}$",$_POST['mail'])
+		if(preg_match("^[a-z0-9_]+[a-z0-9_.]*@[a-z0-9_-]+[a-z0-9_.-]*\.[a-z]{2,5}$",$_POST['mail'])
 			/*!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)*/)
 		{
-			$msg.="<li>Please Enter Your Valid Email Address...";
+			$msg="<li>Please Enter Your Valid Email Address...";
 		}
 		
+		if(strlen($_POST['unm'])>24 || strlen($_POST['unm'])<6)
+		{
+			$msg="<li>Please Enter Your User name in limited Format....";
+		}
 		
 		if(strlen($_POST['pwd'])>30 || strlen($_POST['pwd'])<6)
 		{
-			$msg.="<li>Please Enter Your Password in limited Format....";
+			$msg="<li>Please Enter Your Password in limited Format....";
 		}
 		
 		if(is_numeric($_POST['fnm']))
 		{
-			$msg.="<li>Name must be in String Format...";
+			$msg="<li>Name must be in String Format...";
 		}
 		
 		if($msg!="")

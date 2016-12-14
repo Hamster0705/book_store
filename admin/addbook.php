@@ -41,6 +41,10 @@ require('includes/config.php');
 						<input type='text' name='name' size='40'>
 						<br><br>
 						
+						<b>Author:</b><br>
+						<input type='text' name='author' size='40'>
+						<br><br>
+
 						<b>Category:</b><br>
 						<select  name="cat">
 								<?php
@@ -61,7 +65,7 @@ require('includes/config.php');
 												while($row2 = mysqli_fetch_assoc($res2))
 												{	
 												
-										echo '<option value="'.$row2['subcat_id'].'"> ---> '.$row2['subcat_nm'];
+										echo '<option value="'.$row2['subcat_id'].'"> -> '.$row2['subcat_nm'];
 												
 													
 												}
@@ -71,7 +75,7 @@ require('includes/config.php');
 								?>
 						</select>
 						<br><br>
-						
+
 						<b>Description:</b><br>
 						<textarea cols="40" rows="6" name='description' ></textarea>
 						<br><br>
@@ -80,30 +84,34 @@ require('includes/config.php');
 						<input type='text' name='publisher' size='40'>
 						<br><br>
 						
-						<b>Edition:</b><br>
-						<input type='text' name='edition' size='40'>
+						<b>Language:</b><br>
+						<input type='text' name='lang' size='40'>
 						<br><br>
-						
+
 						<b>ISBN:</b><br>
 						<input type='text' name='isbn' size='40'>
 						<br><br>
 						
-						<b>PAGES:</b><br>
+						<b>Pages:</b><br>
 						<input type='text' name='pages' size='40'>
 						<br><br>
 						
-						<b>PRICE:</b><br>
+						<b>Price:</b><br>
 						<input type='text' name='price' size='40'>
 						<br><br>
-						
+
+						<b>Status:</b><br>
+						<select name='ava'>
+						<option value="Available" label="Available">Available</option>
+						<option value="Unavailable" label="Unavailable">Unavailable</option>
+						</select>
+						<br><br>
+
 						<b>Image:</b><br>
 						<input type='file' name='img' size='35'>
 						<br><br>
-						
-						
-						<b>E-Book:</b><br>
-						<input type='file' name='ebook'  size='35'>
-						<br><br>
+
+
 						
 						<input  type='submit'  value='   OK   '  >
 				</form>

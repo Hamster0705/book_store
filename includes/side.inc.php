@@ -10,7 +10,7 @@
 	margin-left: 10px;
 }
 .form-control{
-	width: 280px;
+	width: 260px;
 	margin-right: 10px;
 }
 </style>
@@ -21,7 +21,7 @@
 		<form class="filter-menu" action="search_detail.php" method="get">
 			<div class="form-group">
 				<label for="searchTerm">Keyword</label>
-				<input type="text" class="form-control" name="s" value="<?php echo htmlspecialchars($_GET['s']); ?>">
+				<input type="text" class="form-control" name="s" value="<?php if(isset($_GET['s'])) echo htmlspecialchars($_GET['s']); ?>">
 			</div>
 
 			<!--input type="hidden" name="searchSortBy" value="">

@@ -33,10 +33,10 @@ require('includes/config.php');
 	<div id="content">
 		<div class="post" style="margin-left:100px">
 			<h1 class="title"></h1>
-			<div class="entry" style="min-height:400px">
+			<div class="entry">
 				<form action='process_addcategory.php' method='POST'>
-						<b style="color:darkgreen">ADD CATEGORY </b>
-							<br/>
+						<b>ADD CATEGORY </b>
+							<br><br>
 							<input type='text' name= 'cat' size='25'>
 							
 							<input type='submit'  value='  ADD  '>
@@ -45,14 +45,42 @@ require('includes/config.php');
 				</form>
 				<hr>
 				<form action='process_addsubcategory.php' method='POST'>
-							
-							
-							
+							<b>ADD SUB-CATEGORY </b>
+							<br><br>
+							<u>PARENT CATEGORY :</u>
+									<br><br>
+										<select  name="parent">
+											<?php
 									
+										
+			
+											$query="select * from category ";
+			
+											$res=mysqli_query($conn,$query);
+											
+											while($row=mysqli_fetch_assoc($res))
+											{
+												echo "<option>".$row['cat_nm'];
+											}
+			
+											
+									?>
+										</select>
+									
+									<br><br>
+							<u>SUB-CATEGORY:</u>
+									<br><br>
+										<input type='text' name= 'subcat' size='25'>
+										
+										<input type='submit'  value='  ADD  '>
+									
+									<br><br>	
+				</form>
+				<hr>
+				<form action='process_delcategory.php' method='POST'>
 							
-							
-						<b style="color:darkgreen">DELETE CATEGORY </b>						
-							<br>
+						<b>DELETE CATEGORY </b>						
+							<br><br>
 								<select name="del">
 									<?php
 									
@@ -77,7 +105,39 @@ require('includes/config.php');
 
 				<form action='process_delsubcategory.php' method='POST'>
 							<hr>
+						<b>DELETE SUB CATEGORY </b>						
+							<br><br>
+								<select  name="subcatnm">
+									<?php
+
+											$query="select * from category ";
+			
+											$res=mysqli_query($conn,$query);
+											
+											while($row=mysqli_fetch_assoc($res))
+											{
+												echo "<option disabled>".$row['cat_nm'];
+												
+												$q2 = "select * from subcat where parent_id = ".$row['cat_id'];
+												
+												$res2 = mysqli_query($conn,$q2) or die("Can't Execute Query..");
+												while($row2 = mysqli_fetch_assoc($res2))
+												{	
+												
+										echo '<option value="'.$row2['subcat_id'].'"> -> '.$row2['subcat_nm'];
+												
+													
+												}
+												
+											}
+			
+											
+									?>
+								</select>
 						
+							
+							<input type='submit' value=' DELETE '>
+				</form>	
 			</div>
 			
 		</div>

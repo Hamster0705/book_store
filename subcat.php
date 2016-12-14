@@ -3,7 +3,6 @@ require('includes/config.php');
  session_start();
 
 
-	
 	$cat=$_GET['cat_nm'];
 	
 	$q = "select * from subcat where parent_id = ".$_GET['cat'];
@@ -11,7 +10,7 @@ require('includes/config.php');
 	
 	$row1 = mysqli_fetch_assoc($res);
 	
-	if($_GET['catnm']==$row1['subcat_nm'])
+	if($_GET['cat_nm']==$row1['subcat_nm'])
 	{
 		header("location:booklist.php?subcatid=".$row1['subcat_id']."&subcatnm=".$row1["subcat_nm"]);
 		
@@ -22,6 +21,7 @@ require('includes/config.php');
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<?php
 			include("includes/head.inc.php");
 		?>
@@ -52,17 +52,42 @@ require('includes/config.php');
 					<!-- start content -->
 					<div id="content">
 						<div class="post">
-							<h1 class="title"><?php echo $_GET['catnm'];?></h1>
+							<h1 class="title"><?php echo $_GET['cat_nm'];?></h1>
 							<div class="entry">
-						
-								<?php
-									Do
-									{
-										
-										echo '<li><a href="booklist.php?subcatid='.$row1['subcat_id'].'&subcatnm='.$row1["subcat_nm"].'">'.$row1['subcat_nm'].'</a></li>';
-										//&subcatnm='.$row1["subcat_nm"].'
-									}while($row1 = mysqli_fetch_assoc($res))
-								?>
+							<table width="100%" >
+							<?php
+											
+								$cat=$_GET['cat_nm'];
+	
+	$q = "select * from book, category, subcat where book.b_subcat= subcat.subcat_id AND subcat.parent_id = category.cat_id AND cat_nm like '%$cat%'";
+	$res = mysqli_query($conn,$q) or die("Can't Execute Query..");
+	
+	//$row1 = mysqli_fetch_assoc($res);
+												$count=0;
+												while($row=mysqli_fetch_assoc($res))
+												{
+													if($count==0)
+													{
+														echo '<tr>';
+													}	
+													echo '<td valign="top" width="25%" align="center" style="margin-right: 5px">
+													<div style="height:150px">
+													<a href="detail.php?id='.$row['b_id'].'"><img src="'.$row['b_img'].'" width="100" height="140"><br></a>
+													</div>
+													<h4 style="font-weight:bolder; height:50px; width: 170px; font-size:16px">'.$row['b_nm'].'</h4>
+													<h4 style="font-size:16px; color: #9999B2;text-align: center;font-stype:italic">'.$row['b_pbd'].'</h4>
+													<h4 style="font-size:18px; color:red; text-align: center;font-weight:bolder">USD$'.$row['b_price'].'</h4>
+													</td>';
+													$count++;							
+													
+													if($count==4)
+													{
+														echo '</tr>';
+														$count=0;
+													}
+												}
+											?>
+											</table>
 							
 							</div>
 							

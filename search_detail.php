@@ -58,6 +58,7 @@ require('includes/config.php');
 										<table border="0" width="100%" >
 											<?php
 												$count=0;
+											
 											if($s2==""){
 												$num = mysqli_num_rows($res);
 												if($num==0) {
