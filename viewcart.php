@@ -45,14 +45,14 @@ require('includes/config.php');
 							<table width="98%" border="0" style="margin-left: 10px">
 								<tr >
 									<Td> <b>No
-									<td> <b>Category
+								
 									<td> <b>Product
-									<td> <b>Qty
+									<td> <b>Quantity
 									<td> <b>Rate
 									<td> <b>Price
 									<td> <b>Delete
 								</tr>
-								<tr><td colspan="7"><hr style="border:1px Solid #a1a1a1;"></tr>
+								<tr><td colspan="7"><hr style="border:1px solid #a1a1a1;"></tr>
 							
 								<?php
 									$tot = 0;
@@ -65,7 +65,7 @@ require('includes/config.php');
 										echo '
 											<tr>
 											<Td> '.$i.'
-											<td> '.$x['cat'].'
+											
 											<td> '.$x['nm'].'
 											<td> <input type="text" size="2" value="'.$x['qty'].'" name="'.$id.'">
 											<td> '.$x['rate'].'

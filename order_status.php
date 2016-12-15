@@ -1,9 +1,9 @@
 <?php 
 session_start();
 require('includes/config.php');
-
-	$q="select * from orders";
-	 $res=mysqli_query($conn,$q) or die("Can't Execute Query...");
+	$id = $_SESSION['id'];
+	$q="select * from orders where u_id = '$id'";
+	$res=mysqli_query($conn,$q) or die("Can't Execute Query...");
 	?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -56,11 +56,10 @@ require('includes/config.php');
 
 <div id="page">
 	<!-- start content -->
-	<div id="content">
 		<div class="post">
 			<h1 class="title"></h1>
 			<div class="entry">
-				<h1>Handle orders</h1>
+				<h1>Your orders</h1>
 				<?php
 				if(isset($_POST['Submit'])){
 						echo "<h2 style='background-color: white;color:red; font-size:25px;padding-bottom:50px'>Completed!</h2>";
@@ -71,14 +70,14 @@ require('includes/config.php');
 					<table border='1' WIDTH='100%' style="font-size: 18px;background-color: white;">
 					<thead>
 						<tr scope="row" >
-						<th scope="col" WIDTH='5%' style="text-align: center;"><b>Order No.</b></th>
-						<th scope="col" style="text-align: center;" WIDTH='14%'><b>Name</b></th>
-						<th scope="col" style="text-align: center;" WIDTH='20%'><b>Ward/ Village</b></th>
-						<th scope="col" style="text-align: center;" WIDTH='15%'><b>Town/District</b></th>
-						<th scope="col" style="text-align: center;" WIDTH='21%'><b>City</b></th>
-						<th scope="col" style="text-align: center;" WIDTH='8%'><b>Address</b></th>
+						<th scope="col" WIDTH='5%' style="text-align: center;"><b>No.</b></th>
+						<th scope="col" style="text-align: center;" WIDTH='20%'><b>Name</b></th>
+						<th scope="col" style="text-align: center;" WIDTH='12%'><b>Ward/Village</b></th>
+						<th scope="col" style="text-align: center;" WIDTH='12%'><b>Town/District</b></th>
+						<th scope="col" style="text-align: center;" WIDTH='12%'><b>City</b></th>
+						<th scope="col" style="text-align: center;" WIDTH='15%'><b>Address</b></th>
 						<th scope="col" style="text-align: center;" WIDTH='8%'><b>Phone</b></th>
-						<th scope="col" style="align: center;" WIDTH='8%'><b>Change status</b></th>	
+						<th scope="col" style="align: center;" WIDTH='8%'><b>Status</b></th>	
 						</tr>
 					</thead>
 					<tbody>
@@ -95,21 +94,7 @@ require('includes/config.php');
 										<td scope="col" >'.$row['city'].'
 										<td scope="col" >'.$row['address'].'
 										<td scope="col" >'.$row['phone'].'
-										
-										<td>
-										<form action="check_order.php" method="POST">';
-										echo '
-										<input type="submit" class="btn btn-primary custom" name="'.$row['id'].'" value="Shipping" style="font-size: 14px;"></input>
-										<input type="submit" class="btn btn-primary" name="'.$row['id'].'" value="Waiting" style="font-size: 14px;"></input>
-										</form>';
-										if(isset($_POST[''.$row['id'].''])){
-											$id = $row['id'];
-											$stt = $_POST[''.$row['id'].''];
-											$query="update orders set stt = '$stt'
-													where id = '$id'";
-											mysqli_query($conn,$query) or die("Can't Connect to Query...");
-										}
-										echo '</td>
+										<td scope="col" >'.$row['stt'].'
 		    						</tr>';
 									$count++;
 									
@@ -123,18 +108,12 @@ require('includes/config.php');
 					echo '</tbody>
 
 					</TABLE>
-					<form action="check_order.php" method="POST">
-					<input type="submit" name="Submit" value="Submit" style="margin:20px 0 0 530px; font-size: 18px; width:120px">
-					</input>
-					</form>
 					<div>';
 
 					?></div>
 
 				
 			</div>
-			
-		</div>
 		
 	</div>
 	<!-- end content -->

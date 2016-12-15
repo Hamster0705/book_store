@@ -174,7 +174,7 @@
 												 
 												 if(isset($_SESSION['status']))
 												 {
-													echo ' <td><a href="process_cart.php?nm='.$row['b_nm'].'&cat='.$_GET['cat'].'&rate='.$row['b_price'].'"><img src="images/addcart.jpg">
+													echo ' <td><a href="process_cart.php?nm='.$row['b_nm'].'&rate='.$row['b_price'].'"><img src="images/addcart.jpg">
 													</a></td>';
 												}
 												else

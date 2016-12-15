@@ -1,11 +1,9 @@
 <?php 
 session_start();
 require('includes/config.php');
-
-	$q="select * from request, user where request.u_id = user.u_id";
+	$id = $_SESSION['id'];
+	$q="select * from request where u_id = '$id'";
 	$res=mysqli_query($conn,$q) or die("Can't Execute Query...");
-	$q1="select * from request, book where request.re_bnm = book.b_nm";
-	$res1=mysqli_query($conn,$q1) or die("Can't Execute Query...");
 	?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -58,11 +56,10 @@ require('includes/config.php');
 
 <div id="page">
 	<!-- start content -->
-	<div id="content">
 		<div class="post">
-			<h1 class="title"></h1>
-			<div class="entry">
-				<h1>Handle requests from users</h1>
+			<h1 class="title" style="font-size: 30px;font-weight: bolder;"></h1>
+			<div class="entry" style="background-color: transparent;">
+				<h1>Your requests</h1>
 				<?php
 				if(isset($_POST['Submit'])){
 						echo "<h2 style='background-color: white;color:red; font-size:25px;padding-bottom:50px'>Completed!</h2>";
@@ -73,13 +70,11 @@ require('includes/config.php');
 					<table border='1' WIDTH='100%' style="font-size: 18px;background-color: white;">
 					<thead>
 						<tr scope="row" >
-						<th scope="col" WIDTH='5%' style="text-align: center;"><b>No.</b></th>
-						<th scope="col" style="text-align: center;" WIDTH='14%'><b>User</b></th>
+						<th scope="col" WIDTH='3%' style="text-align: center;"><b>No.</b></th>
 						<th scope="col" style="text-align: center;" WIDTH='20%'><b>Book's title</b></th>
 						<th scope="col" style="text-align: center;" WIDTH='15%'><b>Author</b></th>
 						<th scope="col" style="text-align: center;" WIDTH='21%'><b>Other info</b></th>
-						<th scope="col" style="text-align: center;" WIDTH='8%'><b>Status</b></th>
-						<th scope="col" style="align: center;" WIDTH='8%'><b>Change Status</b></th>	
+						<th scope="col" style="text-align: center;" WIDTH='18%'><b>Status</b></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -89,64 +84,37 @@ require('includes/config.php');
 							{
 							echo '<tr scope="raw" >
 										<td style="text-align: center;">'.$count.'
-										
-										<td scope="col" >'.$row['u_unm'].'
 										<td scope="col" >'.$row['re_bnm'].'
 										<td scope="col" >'.$row['re_bau'].'
 										<td scope="col" >'.$row['re_oth'].'
-										<td scope="col" >'.$row['re_stt'].'
-										<td>
-										<form action="check_request.php" method="POST">';
-										echo '
-										<input type="submit" class="btn btn-primary custom" name="'.$row['re_id'].'" value="Processing" style="font-size: 14px;"></input>
-										<input type="submit" class="btn btn-primary" name="'.$row['re_id'].'" value="Founded" style="font-size: 14px;"></input>
-										</form>';
+										<td>';
 										
-										if(isset($_POST[''.$row['re_id'].''])){
-											$id = $row['re_id'];
-											$stt = $_POST[''.$row['re_id'].''];
-											while($row1=mysqli_fetch_assoc($res1)){
-												if($row['re_bnm'] == $row1['b_nm']){
-												$bid = $row1['b_id'];
-												$query="update request set re_stt = '$stt'
-														where re_id = '$id'";
-												mysqli_query($conn,$query) or die("Can't Connect to Query...");
-												$query1="update request set bid = '$bid'
-															where re_id = '$id'";
-												mysqli_query($conn,$query1) or die("Can't Connect to Query...");
-												$query2="update book set b_stt = 'Available'
-															where b_id = '$bid'";
-												mysqli_query($conn,$query2) or die("Can't Connect to Query...");
-												
-												}
+										if($row['re_stt']=="Processing"){
+											echo "We are finding your book and notify you as soon as we can";
+										}
+										if($row['re_stt']=="Founded"){
+											if($row['bid']!= NULL){
+											echo 'You can order book <a href="detail.php?id='.$row['bid'].'">here</a>';
 											}
+											else echo "Not add book";
+										}
+										if($row['re_stt']=="Waiting"){
+											echo 'Admin have not check';
 										}
 										echo '</td>
 		    						</tr>';
 									$count++;
-									
-										
-										/*<select name="new" style="width:100px" >
-										<option value=1>Processing</opiton>
-										<option value=2>OK</opiton>
-										</select>*/
-																}
+							}
 						
 					echo '</tbody>
 
 					</TABLE>
-					<form action="check_request.php" method="POST">
-					<input type="submit" name="Submit" value="Submit" style="margin:20px 0 0 530px; font-size: 18px; width:120px">
-					</input>
-					</form>
 					<div>';
 
-					?></div>
-
+					?>
+					</div>
 				
 			</div>
-			
-		</div>
 		
 	</div>
 	<!-- end content -->
