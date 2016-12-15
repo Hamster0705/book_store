@@ -23,7 +23,7 @@
             <li><a href="index.php" class="home-icon-link"><i class="icon-home"></i><span class="show-on-mobile">Home</span></a></li>
             <li><a rel="nofollow" href="viewcart.php"><i class="fa fa-cart-plus" aria-hidden="true"></i>View cart</a></li>
             <li><a href="order_status.php"><i class="icon-order-status"></i>Order status</a></li>
-            <li><a rel="nofollow" href="request_status.php"><i class="icon-em"></i>Request</a></li>
+            <li><a rel="nofollow" href="request.php"><i class="icon-em"></i>Request</a></li>
             <li><a rel="nofollow" href="aboutus.php"><i class="icon-info"></i>About us</a></li>
 
         </ul>

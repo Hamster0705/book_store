@@ -44,7 +44,13 @@ require('includes/config.php');
 							<div id="content">
 								<div class="post">
 									<h1 class="title">Request books you want</h1>
+									<form action="request_status.php" method="POST">
+									<input type="submit" class="btn btn-primary" style="font-size: 20px" name="check" value="Check your request"></input>
+									</form>
 					<?php
+					if(isset($_SESSION['check'])){
+						header("location: request_status.php");
+					}
 					if(!isset($_SESSION['status'])){
 						echo '<a href="register.php"> <h1>Please Login..</h1></a>';
 					}
