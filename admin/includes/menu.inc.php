@@ -31,11 +31,10 @@
     <div class="user-nav">
         <ul class="left-nav nav mobile-nav-content" data-order="1">
             <li><a href="index.php" class="home-icon-link"><i class="icon-home"></i><span class="show-on-mobile">Home</span></a></li>
-            <li><a rel="nofollow" href="category.php"><i class=""></i>Categories</a></li>
-            <li><a href="subcategory.php"><i class=""></i>Sub-categories</a></li>
-            <li><a rel="nofollow" href="all_book.php"><i class=""></i>Books</a></li>
-            <li><a rel="nofollow" href="check_request.php"><i class=""></i>Check requests</a></li>
-            <li><a rel="nofollow" href="check_order.php"><i class=""></i>Check orders</a></li>
+            <li><a  href="category.php"><i class=""></i>Categories</a></li>
+            <li><a  href="all_book.php"><i class=""></i>Books</a></li>
+            <li><a  href="check_request.php"><i class=""></i>Check requests</a></li>
+            <li><a  href="check_order.php"><i class=""></i>Check orders</a></li>
 
         </ul>
 
@@ -87,7 +86,7 @@
 					<div class="book-result"></div>
 					</div>
 				</form>
-				<a rel="nofollow" href="search_adv.php" class="advanced-search">Advanced Search</a>
+				<a  href="search_adv.php" class="advanced-search">Advanced Search</a>
 			</div>
 
 	</header>

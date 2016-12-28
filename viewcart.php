@@ -59,7 +59,6 @@ require('includes/config.php');
 									$i = 1;
 									if(isset($_SESSION['cart']))
 									{
-
 									foreach($_SESSION['cart'] as $id=>$x)
 									{	
 										echo '
@@ -97,7 +96,7 @@ require('includes/config.php');
 								<br><br>
 							<center>
 							<input type="submit" value=" Update " > 
-							<a href="checkout.php">CONFIRM & PROCEED<a/>
+							<a href="checkout.php">Checkout<a/>
 							</center>
 							</form>
 							</div>

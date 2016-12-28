@@ -42,13 +42,13 @@ require('includes/config.php');
 			<input type="submit" class="btn btn-primary" name="submit" value="Cash On Delivery" style="font-size: 14px;"></input>
 			</form>
 			<?php
+			if(isset($_POST['submit'])){
 			while($row=mysqli_fetch_assoc($res)){
-				if(isset($_POST['submit'])){
 					$mt = $_POST['submit'];
 					$query="update orders set method = '$mt' where id = '$id'";
 					mysqli_query($conn,$query) or die("Can't Connect to Query...");
-
 				}
-			}
 			echo '<br><h1>Success! Chúng tôi sẽ liên lạc với bạn ngay khi có thể!</h1>';
+			}
+			
 			?>

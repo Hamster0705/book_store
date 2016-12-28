@@ -95,7 +95,7 @@ require('includes/config.php');
 										<td scope="col" >'.$row['address'].'
 										<td scope="col" >'.$row['phone'].'
 										<td scope="col" >'.$row['stt'].'
-		    						</tr>';
+									</tr>';
 									$count++;
 									
 										

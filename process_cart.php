@@ -1,5 +1,4 @@
 <?php session_start();
-
 	if(isset($_GET['nm']) and isset($_GET['rate']))
 	{
 		//add item
@@ -22,14 +21,4 @@
 			header("location: viewcart.php");
 		}
 	}
-	$uid=$_SESSION['id'];
-	$pro=$_GET['nm'];
-
-	$query="insert into cart(u_id,product)
-			values('$uid','$pro')";
-			
-	mysqli_query($conn,$query) or die("Can't Connect to Query...");
-	header("location: viewcart.php");
-
-
 ?>

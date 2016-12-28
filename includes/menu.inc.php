@@ -21,10 +21,10 @@
     <div class="user-nav">
         <ul class="left-nav nav mobile-nav-content" data-order="1">
             <li><a href="index.php" class="home-icon-link"><i class="icon-home"></i><span class="show-on-mobile">Home</span></a></li>
-            <li><a rel="nofollow" href="viewcart.php"><i class="fa fa-cart-plus" aria-hidden="true"></i>View cart</a></li>
+            <li><a  href="viewcart.php"><i class="fa fa-cart-plus" aria-hidden="true"></i>View cart</a></li>
             <li><a href="order_status.php"><i class="icon-order-status"></i>Order status</a></li>
-            <li><a rel="nofollow" href="request.php"><i class="icon-em"></i>Request</a></li>
-            <li><a rel="nofollow" href="aboutus.php"><i class="icon-info"></i>About us</a></li>
+            <li><a  href="request.php"><i class="icon-em"></i>Request</a></li>
+            <li><a  href="aboutus.php"><i class="icon-info"></i>About us</a></li>
 
         </ul>
         <div class="middle-nav">
@@ -91,7 +91,7 @@
 					<div class="book-result"></div>
 					</div>
 				</form>
-				<a rel="nofollow" href="search_adv.php" class="advanced-search">Advanced Search</a>
+				<a  href="search_adv.php" class="advanced-search">Advanced Search</a>
 			</div>
 
 	</header>

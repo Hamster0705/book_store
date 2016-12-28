@@ -5,7 +5,7 @@
 	
 	$q="select * from book where b_id=$id";
 	
-	$res=mysqli_query($conn,$q) or die("Can't Execute Query..");
+	$res=mysqli_query($conn,$q) or die("Died");
 	$row=mysqli_fetch_assoc($res);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -26,7 +26,6 @@
 		display: table-cell;
 		vertical-align: middle; 
 	}
-
 	</style>
 </head>
 
@@ -54,7 +53,6 @@
 											echo 
 											'<div style="min-height:400px">
 											<table border="0"  width="100%" bgcolor="#ffffff" style="font-size: 15px;">
-
 												<tr> 
 													
 													<td width="35%" rowspan="3" class="cen">
@@ -93,13 +91,11 @@
 													 <td colspan="3"> <h2 style="font-size: 22px;font-weight: bolder;background:white; color:black;height:auto">Product Details</h2><hr>
 													 </td>
 												</tr>
-
 												<tr>
 													<td style="padding-left:20px;font-weight:bolder;width:100px">  Pages</td>
 													<td>: </td>
 													<td>'.$row['b_page'].'</td>
 												</tr>
-
 												<tr>
 													<td style="padding-left:20px;font-weight:bolder;width:100px">Publisher </td>
 													<td>: </td>
@@ -111,7 +107,6 @@
 													<td>: </td>
 													<td >'.$row['b_lang'].'</td>				
 												</tr>
-
 												<tr>
 													<td style="padding-left:20px;font-weight:bolder;width:100px">ISBN</td>
 													<td>: </td>
@@ -124,7 +119,6 @@
 													<td>: </td>
 													<td style="color:red">'.$row['b_stt'].'</td>
 												</tr>
-
 												<tr>
 													<td style="padding-left:20px;color:white; width:100px"> hien</td>
 													<td></td>
@@ -153,7 +147,7 @@
 															$query="insert into request(u_id, re_bnm,re_bau,re_oth,re_stt)
 															values('$id','$tt','$au','$oth','$stt')";
 															
-															mysqli_query($conn,$query) or die("Can't Execute Query...");
+															mysqli_query($conn,$query) or die("Can't Execute");
 															echo 'Request success! Check your order status to confirm.';
 													}
 													'</td>';
